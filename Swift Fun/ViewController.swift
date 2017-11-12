@@ -4,20 +4,38 @@
 //
 //  Created by Lukáš Hájek on 04/11/2017.
 //  Copyright © 2017 Lukáš Hájek. All rights reserved.
-//  Hello I like vegetables
 //
 
 import UIKit
 
 class ViewController: UIViewController {
 
-    var buttonCount = 0
+//    var buttonCount = 0
     @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var TopTextField: UITextField!
+    @IBOutlet weak var ButtonTextField: UITextField!
+    @IBOutlet weak var AdditionSwitch: UISwitch!
     
     
     @IBAction func ButtomTapped(_ sender: Any) {
         
-        buttonCount = buttonCount + 1
+        let addition = AdditionSwitch.isOn
+        
+        if addition {
+            let sum = Double(TopTextField.text!)! + Double(ButtonTextField.text!)!
+            
+            myLabel.text = "\(TopTextField.text!) + \(ButtonTextField.text!) = \(sum)"
+        } else {
+            let sum = Double(TopTextField.text!)! - Double(ButtonTextField.text!)!
+            
+            myLabel.text = "\(TopTextField.text!) - \(ButtonTextField.text!) = \(sum)"
+        }
+        
+       
+        
+        
+        /*
+        buttonCount += 1
         
         print(buttonCount)
         
@@ -31,7 +49,7 @@ class ViewController: UIViewController {
                 
                 myLabel.text =  "You hit it more than 15 times"
         }
-        
+        */
     }
     
     
